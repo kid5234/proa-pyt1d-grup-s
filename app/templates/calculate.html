@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+  <!-- START THE FEATURETTES -->
+  <form id="choice">
+    <div class="form-group row">
+      <label for="cat" class="h6 col-sm-2 col-form-label">Jenis Usaha: </label>
+      <select class="js-example-basic-single col-sm-5" name="cat" id="cat" >
+        <option value="0">-- Pilih Jenis Usaha --</option>
+        <option value="rekreasi">Pusat Rekreasi</option>
+        <option value="konser">Konser Musik</option>
+        <option value="karaoke">Karaoke</option>
+        <option value="restokafe">Restaurant dan Cafe</option>
+        <option value="pubbar">Pub, Bar dan Bistro</option>
+        <option value="maldsb">Mall, Supermarket, Toko, Distro, Salon Kecantikan, Pusat Kebugaran, Arena Olahraga, Ruang Pamer</option>
+        <option value="hotel">Hotel</option>
+        <option value="diskotik">Diskotik</option>
+      </select>
+    </div>
+  </form>
+  <hr class="featurette-divider">
+
+  <!--Start Form Rekreasi-->
+  <form id="formrekreasi" action="" method="post" style="display :none;">
+    <div class="form-group row">
+      <label for="radio" class="h6 col-sm-2 col-form-label">Tiket?</label>
+      <div class="form-check form-check-inline">
+        <input type="radio" id="tiketya" name="cekradio" class="form-check-input" checked>
+        <label class="form-check-label" for="tiketya">Ya</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" id="tiketga" name="cekradio" class="form-check-input">
+        <label class="form-check-label" for="tiketga">Tidak</label>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="htm" class="col-sm-3 col-form-label">Harga Tiket Masuk:</label>
+      <input type="number" name="htm" id="htm" value="0" class="col-sm-4">
+    </div>
+    <div class="form-group row">
+      <label for="pengunjung" class="col-sm-3 col-form-label">Jumlah Pengunjung:</label>
+      <input type="number" name="pengunjung" id="pengunjung" value="0" class="col-sm-4">
+    </div>
+    <div class="form-group row">
+      <label for="persen" class="col-sm-3 col-form-label">Penggunaan Musik (%):</label>
+      <input type="number" name="persen" id="persen" value="0" class="col-sm-4" max="100" min="0">
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Hitung</button>
+      </div>
+    </div>
+  </form>
+  <!-- End Form Rekreasi -->
+
+  <!--Start Form Konser-->
+  <form id="formkonser" action="" method="post" style="display :none;">
+    <div class="form-group row">
+      <label for="radio" class="h6 col-sm-2 col-form-label">Tiket?</label>
+      <div class="form-check form-check-inline">
+        <input type="radio" id="konserya" name="konsercek" class="form-check-input" checked>
+        <label class="form-check-label" for="tiketya">Ya</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" id="konserga" name="konsercek" class="form-check-input">
+        <label class="form-check-label" for="tiketga">Tidak</label>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="bproduksi" class="col-sm-3 col-form-label">Biaya Produksi:</label>
+      <input type="number" name="bproduksi" id="bproduksi" placeholder="Masukkan Biaya Produksi" class="col-sm-4" disabled>
+    </div>
+    <div class="form-group row">
+      <label for="grosstiket" class="col-sm-3 col-form-label">Penjualan Tiket (Gross):</label>
+      <input type="number" name="grosstiket" id="grosstiket" placeholder="Masukkan Penjualan Tiket" class="col-sm-4">
+    </div>
+    <div class="form-group row">
+      <label for="freetiket" class="col-sm-3 col-form-label">Tiket Gratis:</label>
+      <input type="number" name="freetiket" id="freetiket" placeholder="Masukkan Tiket Gratis" class="col-sm-4">
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Hitung</button>
+      </div>
+    </div>
+  </form>
+  <!-- End Form Konser -->
+
+  <!--Start Form Mall, Supermarket, dkk-->
+  <form id="formmall" action="" method="post" style="display :none;">
+    <div class="form-group row">
+      <label for="luasruang" class="col-sm-3 col-form-label">Luas Ruang (dalam Meter Persegi):</label>
+      <input type="number" name="luasruang" id="luasruang" placeholder="Masukkan Luas Area" class="col-sm-4">
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Hitung</button>
+      </div>
+    </div>
+  </form>
+  <!-- End Form Mall, Supermarket, dkk -->
+
+  <!--Start Form Karaoke-->
+  <form id="formkaraoke" action="" method="post" style="display :none;">
+    <div class="form-group row">
+      <label for="karaokeaula" class="col-sm-3 col-form-label">Karaoke Tanpa Kamar (Aula):</label>
+      <div class="form-check form-check-inline col-sm-8">
+        <input type="checkbox" id="cekaula" name="cekaula" class="form-check-input col-sm-1">
+        <input type="number" name="karaokeaula" id="karaokeaula" placeholder="Jumlah Kamar" class="col-sm-5" disabled>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="luasruang" class="col-sm-3 col-form-label">Karaoke Keluarga:</label>
+      <div class="form-check form-check-inline col-sm-8">
+        <input type="checkbox" id="cekkluarga" name="cekkluarga" class="form-check-input col-sm-1">
+        <input type="number" name="karaokefamili" id="karaokefamili" placeholder="Jumlah Kamar" class="col-sm-5" disabled>
+      </div>    </div>
+    <div class="form-group row">
+      <label for="luasruang" class="col-sm-3 col-form-label">Karaoke Eksekutif:</label>
+      <div class="form-check form-check-inline col-sm-8">
+        <input type="checkbox" id="cekeksekutip" name="cekeksekutip" class="form-check-input col-sm-1">
+        <input type="number" name="karaokeeksekutif" id="karaokeeksekutif" placeholder="Jumlah Kamar" class="col-sm-5" disabled>
+      </div>    </div>
+    <div class="form-group row">
+      <label for="luasruang" class="col-sm-3 col-form-label">Karaoke Kubus (Booth):</label>
+      <div class="form-check form-check-inline col-sm-8">
+        <input type="checkbox" id="cekbooth" name="cekbooth" class="form-check-input col-sm-1">
+        <input type="number" name="karaokebooth" id="karaokebooth" placeholder="Jumlah Kamar" class="col-sm-5" disabled>
+      </div>    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Hitung</button>
+      </div>
+    </div>
+  </form>
+  <!-- End Form Karaoke -->
+
+  <!--Start Form Restaurant dan Kafe-->
+  <form id="formrestokafe" action="" method="post" style="display :none;">
+    <div class="form-group row">
+      <label for="jmlkursi" class="col-sm-3 col-form-label">Jumlah Kursi:</label>
+      <input type="number" name="jmlkursi" id="jmlkursi" placeholder="Masukkan Jumlah Kursi" class="col-sm-4">
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Hitung</button>
+      </div>
+    </div>
+  </form>
+  <!-- End Form Restaurant dan Kafe -->
+
+  <!--Start Form Pub, Bar, Bistro-->
+  <form id="formpubbar" action="" method="post" style="display :none;">
+    <div class="form-group row">
+      <label for="pubresto" class="col-sm-3 col-form-label">Luas Ruang (dalam Meter Persegi):</label>
+      <input type="number" name="pubresto" id="pubresto" placeholder="Masukkan Luas Area" class="col-sm-4">
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Hitung</button>
+      </div>
+    </div>
+  </form>
+  <!-- End Form Pub, Bar, Bistro -->
+
+  <!--Start Form Diskotik-->
+  <form id="formdiskotik" action="" method="post" style="display :none;">
+    <div class="form-group row">
+      <label for="diskotikluas" class="col-sm-3 col-form-label">Luas Ruang (dalam Meter Persegi):</label>
+      <input type="number" name="diskotikluas" id="diskotikluas" placeholder="Masukkan Luas Area" class="col-sm-4">
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Hitung</button>
+      </div>
+    </div>
+  </form>
+  <!-- End Form Diskotik -->
+
+  <!--Start Form Hotel-->
+  <form id="formhotel" action="" method="post" style="display :none;">
+    <div class="form-group row">
+      <label for="hotelkamar" class="col-sm-3 col-form-label">Jumlah Kamar:</label>
+      <input type="number" name="hotelkamar" id="hotelkamar" placeholder="Masukkan Jumlah Kamar" class="col-sm-4">
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Hitung</button>
+      </div>
+    </div>
+  </form>
+  <!-- End Form Hotel -->
+
+  <!-- /END THE FEATURETTES -->
+  <script>
+  // In your Javascript (external .js resource or <script> tag)
+  $(document).ready(function() {
+    // $('#cat').select2({
+    //   placeholder: 'Pilih Jenis Usaha'
+    // });
+    $.selMap = {
+        'rekreasi' : $('#formrekreasi'),
+        'konser' : $('#formkonser'),
+        'karaoke' : $('#formkaraoke'),
+        'maldsb' : $('#formmall'),
+        'hotel' :  $('#formhotel'),
+        'restokafe' :  $('#formrestokafe'),
+        'pubbar' : $('#formpubbar'),
+        'diskotik' : $('#formdiskotik')
+    };
+
+    $('#cat').change(function(){
+      $.each($.selMap, function() { this.hide(); });
+      $.selMap[$(this).val()].show();
+    });
+
+  });
+  </script>
+</div>
+{% endblock %}

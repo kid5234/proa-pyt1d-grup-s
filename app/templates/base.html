@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}" >
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/select2.min.css') }}" >
+  <script src="{{ url_for('static',filename='js/jquery-3.6.0.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}" ></script>
+  <script src="{{ url_for('static',filename='js/select2.full.min.js') }}" ></script>
+  <title>MRC {{ title }}</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">MRC</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <!-- <li class="nav-item {% if title == '- Home'%} active {% endif %}">
+            <a class="nav-link" href="/">Home </a>
+          </li> -->
+          <li class="nav-item {% if title == '- Kalkulasi'%} active {% endif %}">
+            <a class="nav-link" href="/hitung">Perhitungan </a>
+          </li>
+          <li class="nav-item {% if title == '- Tutorial'%} active {% endif %}">
+            <a class="nav-link" href="/about">Tutorial </a>
+          </li>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="flex-shrink-0">
+      <hr class="featurette-divider">
+      {% block content %}{% endblock %}
+
+    </main>
+      <!-- FOOTER -->
+      <footer class="mt-auto py-3">
+        <hr class="featurette-divider">
+        <div class="container">
+          <span class="text-muted">&copy; 2021 PYT 1D &middot; Grup S &middot; </span>
+        </div>
+      </footer>
+
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+
+
+  </body>
+  </html>
