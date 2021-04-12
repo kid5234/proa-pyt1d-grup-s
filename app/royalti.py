@@ -10,25 +10,18 @@ def hitung_rekreasi(htm, pgj, persen):
     return result
 
 
-def karaoke():
-	ruangAula = int(input('Jumlah ruang karaoke berbentuk Aula: '))
-	ruangKeluarga = int(input('Jumlah ruang karaoke berbentuk Karaoke Keluarga: '))
-	ruangEksekutif = int(input('Jumlah ruang karaoke berbentuk Karaoke Eksekutif: '))
-	ruangKubus = int(input('Jumlah ruang karaoke berbentuk Kubus atau Booth: '))
-	hari_kerja = int(input('Jumlah hari beroperasi dalam satu tahun: '))
-	pencipta = int(((ruangAula*20000*hari_kerja)+(ruangKeluarga*12000*hari_kerja)+(ruangEksekutif*50000*hari_kerja))*0.5+(ruangKubus*300000))
-	terkait = int(((ruangAula*20000*hari_kerja)+(ruangKeluarga*12000*hari_kerja)+(ruangEksekutif*50000*hari_kerja))*0.5+(ruangKubus*300000))
-	biaya = int(pencipta+terkait)
-	print(f"Biaya Royalti Setahun untuk hak Pencipta adalah Rp {pencipta} dan untuk hak Terkait adalah Rp {terkait} \nTotal keseluruhan biaya royalti setahun adalah Rp {biaya}")
-
-pilih = str(input('Tempat Rekreasi atau Tempat Karaoke? \nMasukkan "r" untuk Rekreasi atau "k" untuk Karaoke: '))
-cek = (pilih == 'k') or (pilih == 'r')
-while not cek:
-	print("!!!!!!"*5)
-	print('Mohon masukkan dengan benar!')
-	pilih = str(input('Tempat Rekreasi atau Tempat Karaoke? \nMasukkan "r" untuk Rekreasi atau "k" untuk Karaoke: '))
-	cek = (pilih == 'k') or (pilih == 'r')
-if pilih == 'r':
-	hitung_rekreasi()
-else:
-	karaoke()
+def Hotel(kmr):
+    kamar = int(kmr)
+    if kamar == 0:
+        royalti = 1600000
+    elif kamar <= 50:
+        royalti = 2000000
+    elif kamar <= 100:
+        royalti = 4000000
+    elif kamar <= 150:
+        royalti = 6000000
+    elif kamar <= 200:
+        royalti = 8000000
+    else:
+        royalti = 12000000
+    return royalti

@@ -1,6 +1,7 @@
-from flask import render_template
+from flask import Flask, render_template, request, jsonify
 
 from app import app
+import app.royalti as r
 
 # from app import royalti
 
@@ -18,3 +19,16 @@ def about():
 @app.route('/hitung')
 def hitung():
     return render_template("calculate.html", title='- Kalkulasi')
+
+
+@app.route('/proseshitung')
+def proseshitung():
+    cat = request.args.get("cat")
+    kmrhotel = request.args.get("kmrhotel")
+    print(cat)
+    bayar = r.Hotel(kmrhotel)
+    print(bayar)
+    try:
+        return jsonify(result="{:,}".format(bayar))
+    except Exception as e:
+        return str(e)
