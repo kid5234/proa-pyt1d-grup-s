@@ -29,13 +29,22 @@ def hitung():
     bazaarForm = f.bazaarForm()
     transportForm = f.transportForm()
     pesawatForm = f.pesawatForm()
+    hotelForm = f.hotelForm()
+    diskoForm = f.diskoForm()
+    pubForm = f.pubForm()
+    restoForm = f.restoForm()
+    karaokeForm = f.karaokeForm()
+    mallForm = f.mallForm()
+    konserForm = f.konserForm()
+    rekreasiForm = f.rekreasiForm()
     return render_template(
         "calculate.html",
         title='- Kalkulasi',
-        catForm=catForm, bazaarForm=bazaarForm,
-        nspForm=nspForm, transportForm=transportForm,
-        bankForm=bankForm, pesawatForm=pesawatForm,
-        bioskopForm=bioskopForm
+        catForm=catForm, bazaarForm=bazaarForm, hotelForm=hotelForm,
+        nspForm=nspForm, transportForm=transportForm, diskoForm=diskoForm,
+        bankForm=bankForm, pesawatForm=pesawatForm, pubForm=pubForm,
+        bioskopForm=bioskopForm, restoForm=restoForm, karaokeForm=karaokeForm,
+        mallForm=mallForm, konserForm=konserForm, rekreasiForm=rekreasiForm
     )
 
 

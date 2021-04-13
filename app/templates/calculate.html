@@ -15,31 +15,29 @@
       <!--Start Form Rekreasi-->
       <form id="formrekreasi" style="display :none;">
         <div class="form-group row">
-          <label for="radio" class="h6 col-sm-2 col-form-label">Tiket?</label>
-          <div class="form-check form-check-inline">
-            <input type="radio" id="tiketya" name="cekradio" class="form-check-input" checked>
-            <label class="form-check-label" for="tiketya">Ya</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input type="radio" id="tiketga" name="cekradio" class="form-check-input">
-            <label class="form-check-label" for="tiketga">Tidak</label>
-          </div>
+          {{ rekreasiForm.cekradio.label(class="h6 col-sm-2 col-form-label") }}
+          {% for subfield in rekreasiForm.cekradio %}
+            <div class="form-check form-check-inline">
+              {{ subfield(class="form-check-input") }}
+              {{ subfield.label(class="form-check-label") }}
+            </div>
+          {% endfor %}
         </div>
         <div class="form-group row">
-          <label for="htm" class="col-sm-3 col-form-label">Harga Tiket Masuk:</label>
-          <input type="text" name="htm" id="htm" value="0" class="col-sm-5">
+          {{ rekreasiForm.htm.label(class="col-sm-3 col-form-label") }}
+          {{ rekreasiForm.htm(class="col-sm-5",  placeholder="Masukkan HTM") }}
         </div>
         <div class="form-group row">
-          <label for="pengunjung" class="col-sm-3 col-form-label">Jumlah Pengunjung:</label>
-          <input type="text" name="pengunjung" id="pengunjung" value="0" class="col-sm-5">
+          {{ rekreasiForm.pengunjung.label(class="col-sm-3 col-form-label") }}
+          {{ rekreasiForm.pengunjung(class="col-sm-5",  placeholder="Masukkan Jumlah Pengunjung") }}
         </div>
         <div class="form-group row">
-          <label for="persen" class="col-sm-3 col-form-label">Penggunaan Musik (%):</label>
-          <input type="text" name="persen" id="persen" value="0" class="col-sm-5" max="100" min="0">
+          {{ rekreasiForm.persen.label(class="col-sm-3 col-form-label") }}
+          {{ rekreasiForm.persen(class="col-sm-5",  placeholder="Masukkan Presentase") }}
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary" id="btnrekreasi">Hitung</button>
+            {{ rekreasiForm.btnrekreasi(class="btn btn-primary")}}
           </div>
         </div>
       </form>
@@ -48,31 +46,29 @@
       <!--Start Form Konser-->
       <form id="formkonser" style="display :none;">
         <div class="form-group row">
-          <label for="radio" class="h6 col-sm-2 col-form-label">Tiket?</label>
-          <div class="form-check form-check-inline">
-            <input type="radio" id="konserya" name="konsercek" class="form-check-input" checked>
-            <label class="form-check-label" for="tiketya">Ya</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input type="radio" id="konserga" name="konsercek" class="form-check-input">
-            <label class="form-check-label" for="tiketga">Tidak</label>
-          </div>
+          {{ konserForm.konsercek.label(class="h6 col-sm-2 col-form-label") }}
+          {% for subfield in konserForm.konsercek %}
+            <div class="form-check form-check-inline">
+              {{ subfield(class="form-check-input") }}
+              {{ subfield.label(class="form-check-label") }}
+            </div>
+          {% endfor %}
         </div>
         <div class="form-group row">
-          <label for="bproduksi" class="col-sm-3 col-form-label">Biaya Produksi:</label>
-          <input type="text" name="bproduksi" id="bproduksi" value=0 class="col-sm-5" disabled>
+          {{ konserForm.bproduksi.label(class="col-sm-3 col-form-label") }}
+          {{ konserForm.bproduksi(class="col-sm-5",  placeholder="Masukkan Biaya Produksi", disabled="disabled") }}
         </div>
         <div class="form-group row">
-          <label for="grosstiket" class="col-sm-3 col-form-label">Penjualan Tiket (Gross):</label>
-          <input type="text" name="grosstiket" id="grosstiket" placeholder="Masukkan Penjualan Tiket" class="col-sm-5">
+          {{ konserForm.grosstiket.label(class="col-sm-3 col-form-label") }}
+          {{ konserForm.grosstiket(class="col-sm-5",  placeholder="Masukkan Penjualan Kotor") }}
         </div>
         <div class="form-group row">
-          <label for="freetiket" class="col-sm-3 col-form-label">Tiket Gratis:</label>
-          <input type="text" name="freetiket" id="freetiket" placeholder="Masukkan Tiket Gratis" class="col-sm-5">
+          {{ konserForm.freetiket.label(class="col-sm-3 col-form-label") }}
+          {{ konserForm.freetiket(class="col-sm-5",  placeholder="Masukkan Total Harga") }}
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary" id="btnkonser">Hitung</button>
+            {{ konserForm.btnkonser(class="btn btn-primary")}}
           </div>
         </div>
       </form>
@@ -81,12 +77,12 @@
       <!--Start Form Mall, Supermarket, dkk-->
       <form id="formmall" style="display :none;">
         <div class="form-group row">
-          <label for="luasruang" class="col-sm-3 col-form-label">Luas Ruang (dalam Meter Persegi):</label>
-          <input type="text" name="luasruang" id="luasruang" placeholder="Masukkan Luas Area" class="col-sm-5">
+          {{ mallForm.luasruang.label(class="col-sm-3 col-form-label") }}
+          {{ mallForm.luasruang(class="col-sm-5",  placeholder="Masukkan Luas Area") }}
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary" id="btnmall">Hitung</button>
+            {{ mallForm.btnmall(class="btn btn-primary")}}
           </div>
         </div>
       </form>
@@ -95,28 +91,28 @@
       <!--Start Form Karaoke-->
       <form id="formkaraoke" style="display :none;">
         <div class="form-group row">
-          <label for="karaokeaula" class="col-sm-4 col-form-label">Karaoke Tanpa Kamar (Aula):</label>
-          <input type="text" name="karaokeaula" id="karaokeaula" placeholder="Jumlah Kamar" class="col-sm-6">
+          {{ karaokeForm.karaokeaula.label(class="col-sm-4 col-form-label") }}
+          {{ karaokeForm.karaokeaula(class="col-sm-6",  placeholder="Masukkan Jumlah Ruang") }}
         </div>
         <div class="form-group row">
-          <label for="karaokefamili" class="col-sm-4 col-form-label">Karaoke Keluarga:</label>
-          <input type="text" name="karaokefamili" id="karaokefamili" placeholder="Jumlah Kamar" class="col-sm-6">
+          {{ karaokeForm.karaokefamili.label(class="col-sm-4 col-form-label") }}
+          {{ karaokeForm.karaokefamili(class="col-sm-6",  placeholder="Masukkan Jumlah Ruang") }}
         </div>
         <div class="form-group row">
-          <label for="karaokeeksekutif" class="col-sm-4 col-form-label">Karaoke Eksekutif:</label>
-          <input type="text" name="karaokeeksekutif" id="karaokeeksekutif" placeholder="Jumlah Kamar" class="col-sm-6">
+          {{ karaokeForm.karaokeeksekutif.label(class="col-sm-4 col-form-label") }}
+          {{ karaokeForm.karaokeeksekutif(class="col-sm-6",  placeholder="Masukkan Jumlah Ruang") }}
         </div>
         <div class="form-group row">
-          <label for="karaokebooth" class="col-sm-4 col-form-label">Karaoke Kubus (Booth):</label>
-          <input type="text" name="karaokebooth" id="karaokebooth" placeholder="Jumlah Kamar" class="col-sm-6">
+          {{ karaokeForm.karaokebooth.label(class="col-sm-4 col-form-label") }}
+          {{ karaokeForm.karaokebooth(class="col-sm-6",  placeholder="Masukkan Jumlah Ruang") }}
         </div>
         <div class="form-group row">
-          <label for="harikerja" class="col-sm-4 col-form-label">Hari Kerja:</label>
-          <input type="text" name="harikerja" id="harikerja" placeholder="Hari Kerja" class="col-sm-6">
+          {{ karaokeForm.harikerja.label(class="col-sm-4 col-form-label") }}
+          {{ karaokeForm.harikerja(class="col-sm-6",  placeholder="Masukkan Hari Kerja") }}
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary" id="btnkaraoke">Hitung</button>
+            {{ karaokeForm.btnkaraoke(class="btn btn-primary")}}
           </div>
         </div>
       </form>
@@ -125,12 +121,12 @@
       <!--Start Form Restaurant dan Kafe-->
       <form id="formrestokafe" style="display :none;">
         <div class="form-group row">
-          <label for="jmlkursi" class="col-sm-3 col-form-label">Jumlah Kursi:</label>
-          <input type="text" name="jmlkursi" id="jmlkursi" placeholder="Masukkan Jumlah Kursi" class="col-sm-5">
+          {{ restoForm.jmlkursi.label(class="col-sm-3 col-form-label") }}
+          {{ restoForm.jmlkursi(class="col-sm-5",  placeholder="Masukkan Jumlah Kursi") }}
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary" id="btnresto">Hitung</button>
+            {{ restoForm.btnresto(class="btn btn-primary")}}
           </div>
         </div>
       </form>
@@ -139,12 +135,12 @@
       <!--Start Form Pub, Bar, Bistro-->
       <form id="formpubbar" style="display :none;">
         <div class="form-group row">
-          <label for="pubbarluas" class="col-sm-3 col-form-label">Luas Ruang (dalam Meter Persegi):</label>
-          <input type="text" name="pubbarluas" id="pubbarluas" placeholder="Masukkan Luas Area" class="col-sm-5">
+          {{ pubForm.pubbarluas.label(class="col-sm-3 col-form-label") }}
+          {{ pubForm.pubbarluas(class="col-sm-5",  placeholder="Masukkan Luas Area") }}
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary" id="btnpub">Hitung</button>
+            {{ pubForm.btnpub(class="btn btn-primary")}}
           </div>
         </div>
       </form>
@@ -153,12 +149,12 @@
       <!--Start Form Diskotik-->
       <form id="formdiskotik" style="display :none;">
         <div class="form-group row">
-          <label for="diskotikluas" class="col-sm-3 col-form-label">Luas Ruang (dalam Meter Persegi):</label>
-          <input type="text" name="diskotikluas" id="diskotikluas" placeholder="Masukkan Luas Area" class="col-sm-5">
+          {{ diskoForm.diskotikluas.label(class="col-sm-3 col-form-label") }}
+          {{ diskoForm.diskotikluas(class="col-sm-5",  placeholder="Masukkan Luas Area") }}
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary" id="btndiskotik">Hitung</button>
+            {{ diskoForm.btndiskotik(class="btn btn-primary")}}
           </div>
         </div>
       </form>
@@ -167,12 +163,12 @@
       <!--Start Form Hotel-->
       <form id="formhotel" style="display :none;">
         <div class="form-group row">
-          <label for="hotelkamar" class="col-sm-3 col-form-label">Jumlah Kamar:</label>
-          <input type="text" name="hotelkamar" id="hotelkamar" placeholder="Masukkan Jumlah Kamar" class="col-sm-5">
+          {{ hotelForm.hotelkamar.label(class="col-sm-3 col-form-label") }}
+          {{ hotelForm.hotelkamar(class="col-sm-5",  placeholder="Masukkan Jumlah Kamar") }}
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary" id="btnhotel">Hitung</button>
+            {{ hotelForm.btnhotel(class="btn btn-primary")}}
           </div>
         </div>
       </form>
@@ -182,7 +178,7 @@
       <form id="formnsp" style="display :none;">
         <div class="form-group row">
           {{ nspForm.nsp.label(class="col-sm-3 col-form-label") }}
-          {{ nspForm.nsp(class="col-sm-5") }}
+          {{ nspForm.nsp(class="col-sm-5",  placeholder="Masukkan Jumlah Sambungan Telepon") }}
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
@@ -196,7 +192,7 @@
       <form id="formbank" style="display :none;">
         <div class="form-group row">
           {{ bankForm.luasbankktr.label(class="col-sm-3 col-form-label") }}
-          {{ bankForm.luasbankktr(class="col-sm-5") }}
+          {{ bankForm.luasbankktr(class="col-sm-5", placeholder="Masukkan Luas Area") }}
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
@@ -210,7 +206,7 @@
       <form id="formbioskop" style="display :none;">
         <div class="form-group row">
           {{ bioskopForm.jmllayar.label(class="col-sm-3 col-form-label") }}
-          {{ bioskopForm.jmllayar(class="col-sm-5") }}
+          {{ bioskopForm.jmllayar(class="col-sm-5",  placeholder="Masukkan Jumlah Layar") }}
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
@@ -224,19 +220,19 @@
       <form id="formpesawat" style="display :none;">
         <div class="form-group row">
           {{ pesawatForm.jmlpenumpangpswt.label(class="col-sm-3 col-form-label") }}
-          {{ pesawatForm.jmlpenumpangpswt(class="col-sm-5") }}
+          {{ pesawatForm.jmlpenumpangpswt(class="col-sm-5",  placeholder="Masukkan Jumlah Penumpang") }}
         </div>
         <div class="form-group row">
           {{ pesawatForm.hrgtiketpswt.label(class="col-sm-3 col-form-label") }}
-          {{ pesawatForm.hrgtiketpswt(class="col-sm-5") }}
+          {{ pesawatForm.hrgtiketpswt(class="col-sm-5",  placeholder="Masukkan Harga Tiket Terendah") }}
         </div>
         <div class="form-group row">
           {{ pesawatForm.durasimskpswt.label(class="col-sm-3 col-form-label") }}
-          {{ pesawatForm.durasimskpswt(class="col-sm-5") }}
+          {{ pesawatForm.durasimskpswt(class="col-sm-5",  placeholder="Masukkan Durasi Musik In-Flight") }}
         </div>
         <div class="form-group row">
           {{ pesawatForm.durasimskpswtog.label(class="col-sm-3 col-form-label") }}
-          {{ pesawatForm.durasimskpswtog(class="col-sm-5") }}
+          {{ pesawatForm.durasimskpswtog(class="col-sm-5",  placeholder="Masukkan Durasi Musik On-Ground") }}
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
@@ -250,7 +246,7 @@
       <form id="formbazaar" style="display :none;">
         <div class="form-group row">
           {{ bazaarForm.hariAcara.label(class="col-sm-3 col-form-label") }}
-          {{ bazaarForm.hariAcara(class="col-sm-5") }}
+          {{ bazaarForm.hariAcara(class="col-sm-5",  placeholder="Masukkan Jumlah Hari") }}
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
@@ -264,15 +260,15 @@
       <form id="formtransport" style="display :none;">
         <div class="form-group row">
           {{ transportForm.jmlpenumpang.label(class="col-sm-3 col-form-label") }}
-          {{ transportForm.jmlpenumpang(class="col-sm-5") }}
+          {{ transportForm.jmlpenumpang(class="col-sm-5",  placeholder="Masukkan Jumlah Penumpang") }}
         </div>
         <div class="form-group row">
           {{ transportForm.hrgtikettransport.label(class="col-sm-3 col-form-label") }}
-          {{ transportForm.hrgtikettransport(class="col-sm-5") }}
+          {{ transportForm.hrgtikettransport(class="col-sm-5",  placeholder="Masukkan Harga Tiket") }}
         </div>
         <div class="form-group row">
           {{ transportForm.durasimsk.label(class="col-sm-3 col-form-label") }}
-          {{ transportForm.durasimsk(class="col-sm-5") }}
+          {{ transportForm.durasimsk(class="col-sm-5",  placeholder="Masukkan Durasi Musik") }}
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
@@ -284,7 +280,7 @@
 
     </div>
     <div class="col-4 jumbotron">
-      <label class="h5">Royalti yang harus dibayarkan:</label>
+      <label class="h5">Royalti yang dibayarkan per tahun:</label>
       <p class="h4">Rp. <span id="duit">0</span> </p>
     </div>
   </div>

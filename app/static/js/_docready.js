@@ -18,17 +18,18 @@ $(document).ready(function() {
   };
 
   $('#cat').change(function(){
+    $('#cat').find('[value="0"]').attr('hidden','hidden');
     $.each($.selMap, function() { this.hide(); this.trigger('reset') });
     $.selMap[$(this).val()].show();
   });
 
-  $('#tiketya').click(function(){
+  $('#cekradio-0').click(function(){
     $('#htm').removeAttr("disabled");
     $('#pengunjung').removeAttr("disabled");
     $('#persen').removeAttr("disabled");
   });
 
-  $('#tiketga').click(function(){
+  $('#cekradio-1').click(function(){
     $('#htm').attr("disabled","disabled");
     $('#pengunjung').attr("disabled","disabled");
     $('#persen').attr("disabled","disabled");
@@ -37,14 +38,14 @@ $(document).ready(function() {
     $('#persen').val('0');
   });
 
-  $('#konserya').click(function(){
+  $('#konsercek-0').click(function(){
     $('#bproduksi').attr("disabled","disabled");
     $('#freetiket').removeAttr("disabled");
     $('#grosstiket').removeAttr("disabled");
     $('#bproduksi').val('0');
   });
 
-  $('#konserga').click(function(){
+  $('#konsercek-1').click(function(){
     $('#bproduksi').removeAttr("disabled");
     $('#freetiket').attr("disabled","disabled");
     $('#grosstiket').attr("disabled","disabled");
