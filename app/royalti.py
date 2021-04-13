@@ -57,7 +57,56 @@ def disko(lruang):
     luas = int(lruang)
     royalti_pencipta = 250000 * luas
     royalti_hak_terkait = 180000 * luas
-    return royalti_hak_terkait, royalti_pencipta
+    royalti = royalti_hak_terkait + royalti_pencipta
+    return royalti
+
+
+def Mall(lruang):
+    ruang = int(lruang)
+    if ruang >= 500:
+        ruang -= 500
+        royalti = 4000 * 500
+        if ruang >= 500:
+            ruang -= 500
+            royalti += 3500*500
+            if ruang >= 1000:
+                ruang -= 1000
+                royalti += 3000*1000
+                if ruang >= 3000:
+                    ruang -= 3000
+                    royalti += 2500*3000
+                    if ruang >= 5000:
+                        ruang -= 5000
+                        royalti += 2000*5000
+                        if ruang >= 5000:
+                            ruang -= 5000
+                            royalti += 1500*5000
+                            if ruang >= 0:
+                                royalti += 1000*1000
+                        else:
+                            royalti += 1500*ruang
+                    else:
+                        royalti += 2000 * ruang
+                else:
+                    royalti += 2500*ruang
+            else:
+                royalti += 3000*ruang
+        else:
+            royalti += 3500*ruang
+    else:
+        royalti = 4000 * ruang
+    return royalti
+
+
+def hitung_konser(gross, free, bproduk):
+    hasiltiket = int(gross)
+    tiketgratis = int(free)
+    biayaproduksi = int(bproduk)
+    if hasiltiket != 0:
+        royalti = hasiltiket * (2/100) + tiketgratis * (1/100)
+    else:
+        royalti = biayaproduksi * (2/100)
+    return royalti
 
 
 def nada(nsp):
@@ -103,41 +152,4 @@ def kereta(pnmpang, tkt, dur):
     tiket = int(tkt)
     durasi = int(dur)
     royalti = penumpang * 0.25 * 0.01 * tiket * 10 * 0.01 * durasi
-    return royalti
-
-
-def Mall(lruang):
-    ruang = int(lruang)
-    if ruang >= 500:
-        ruang -= 500
-        royalti = 4000 * 500
-        if ruang >= 500:
-            ruang -= 500
-            royalti += 3500*500
-            if ruang >= 1000:
-                ruang -= 1000
-                royalti += 3000*1000
-                if ruang >= 3000:
-                    ruang -= 3000
-                    royalti += 2500*3000
-                    if ruang >= 5000:
-                        ruang -= 5000
-                        royalti += 2000*5000
-                        if ruang >= 5000:
-                            ruang -= 5000
-                            royalti += 1500*5000
-                            if ruang >= 0:
-                                royalti += 1000*1000
-                        else:
-                            royalti += 1500*ruang
-                    else:
-                        royalti += 2000 * ruang
-                else:
-                    royalti += 2500*ruang
-            else:
-                royalti += 3000*ruang
-        else:
-            royalti += 3500*ruang
-    else:
-        royalti = 4000 * ruang
     return royalti

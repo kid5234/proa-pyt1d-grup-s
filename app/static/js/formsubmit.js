@@ -22,6 +22,46 @@ $(function(){
     return false;
   });
 
+  $('#btnresto').click(function() {
+    $.getJSON('/proseshitung', {
+      cat: $("#cat").val(),
+      jmlkur : $("#jmlkursi").val()
+    }, function(data) {
+      $('#duit').text(data.result)
+    });
+    return false;
+  });
+
+  $('#btnmall').click(function() {
+    $.getJSON('/proseshitung', {
+      cat: $("#cat").val(),
+      lmall : $("#luasruang").val()
+    }, function(data) {
+      $('#duit').text(data.result)
+    });
+    return false;
+  });
+
+  $('#btnpub').click(function() {
+    $.getJSON('/proseshitung', {
+      cat: $("#cat").val(),
+      lpub : $("#pubbarluas").val()
+    }, function(data) {
+      $('#duit').text(data.result)
+    });
+    return false;
+  });
+
+  $('#btndiskotik').click(function() {
+    $.getJSON('/proseshitung', {
+      cat: $("#cat").val(),
+      ldisk : $("#diskotikluas").val()
+    }, function(data) {
+      $('#duit').text(data.result)
+    });
+    return false;
+  });
+
   $('#btnkaraoke').click(function() {
     $.getJSON('/proseshitung', {
       cat: $("#cat").val(),
@@ -36,4 +76,15 @@ $(function(){
     return false;
   });
 
+  $('#btnkonser').click(function() {
+    $.getJSON('/proseshitung', {
+      cat: $("#cat").val(),
+      tiketkotor : $("#grosstiket").val(),
+      tiketgratis : $("#freetiket").val(),
+      biayaprod : $("#bproduksi").val()
+    }, function(data) {
+      $('#duit').text(data.result)
+    });
+    return false;
+  });
 });

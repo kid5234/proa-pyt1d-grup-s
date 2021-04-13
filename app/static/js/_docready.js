@@ -8,7 +8,13 @@ $(document).ready(function() {
     'hotel' :  $('#formhotel'),
     'restokafe' :  $('#formrestokafe'),
     'pubbar' : $('#formpubbar'),
-    'diskotik' : $('#formdiskotik')
+    'diskotik' : $('#formdiskotik'),
+    'nsp' : $('#formnsp'),
+    'bank' : $('#formbank'),
+    'bioskop' : $('#formbioskop'),
+    'pesawat' : $('#formpesawat'),
+    'bazaar' : $('#formbazaar'),
+    'kereta' : $('#formtransport')
   };
 
   $('#cat').change(function(){
