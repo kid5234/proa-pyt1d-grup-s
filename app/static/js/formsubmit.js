@@ -1,8 +1,18 @@
-// Document on Form Submit Process
+//function process
+$(function(){
+  $('#btnrekreasi').click(function() {
+    $.getJSON('/proseshitung', {
+      cat: $("#cat").val(),
+      htm : $("#htm").val(),
+      pengunjung : $("#pengunjung").val(),
+      persentase : $("#persen").val()
+    }, function(data) {
+      $('#duit').text(data.result)
+    });
+    return false;
+  });
 
-$(function() {
-  $('#btnhotel').click(function(e) {
-    e.preventDefault()
+  $('#btnhotel').click(function() {
     $.getJSON('/proseshitung', {
       cat: $("#cat").val(),
       kmrhotel : $("#hotelkamar").val()
@@ -11,4 +21,19 @@ $(function() {
     });
     return false;
   });
+
+  $('#btnkaraoke').click(function() {
+    $.getJSON('/proseshitung', {
+      cat: $("#cat").val(),
+      raula : $("#karaokeaula").val(),
+      rklg : $("#karaokefamili").val(),
+      rex : $("#karaokeeksekutif").val(),
+      rkubus : $("#karaokebooth").val(),
+      hkerja : $("#harikerja").val()
+    }, function(data) {
+      $('#duit').text(data.result)
+    });
+    return false;
+  });
+
 });

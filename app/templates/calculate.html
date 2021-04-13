@@ -2,28 +2,26 @@
 
 {% block content %}
 <div class="container">
-
+  <form id="choice">
+    <div class="form-group row">
+      <label for="cat" class="h6 col-sm-2 col-form-label">Jenis Usaha: </label>
+      <select class="js-example-basic-single col-sm-5" name="cat" id="cat" >
+        <option value="0">-- Pilih Jenis Usaha --</option>
+        <option value="rekreasi">Pusat Rekreasi</option>
+        <option value="konser">Konser Musik</option>
+        <option value="karaoke">Karaoke</option>
+        <option value="restokafe">Restaurant dan Cafe</option>
+        <option value="pubbar">Pub, Bar dan Bistro</option>
+        <option value="maldsb">Mall, Supermarket, Toko, Distro, Salon Kecantikan, Pusat Kebugaran, Arena Olahraga, Ruang Pamer</option>
+        <option value="hotel">Hotel</option>
+        <option value="diskotik">Diskotik</option>
+      </select>
+    </div>
+  </form>
+  <hr class="featurette-divider">
   <!-- START THE FEATURETTES -->
   <div class="row">
-    <div class="col-md-8">
-      <form id="choice">
-        <div class="form-group row">
-          <label for="cat" class="h6 col-sm-2 col-form-label">Jenis Usaha: </label>
-          <select class="js-example-basic-single col-sm-5" name="cat" id="cat" >
-            <option value="0">-- Pilih Jenis Usaha --</option>
-            <option value="rekreasi">Pusat Rekreasi</option>
-            <option value="konser">Konser Musik</option>
-            <option value="karaoke">Karaoke</option>
-            <option value="restokafe">Restaurant dan Cafe</option>
-            <option value="pubbar">Pub, Bar dan Bistro</option>
-            <option value="maldsb">Mall, Supermarket, Toko, Distro, Salon Kecantikan, Pusat Kebugaran, Arena Olahraga, Ruang Pamer</option>
-            <option value="hotel">Hotel</option>
-            <option value="diskotik">Diskotik</option>
-          </select>
-        </div>
-      </form>
-      <hr class="featurette-divider">
-
+    <div class="col-8">
       <!--Start Form Rekreasi-->
       <form id="formrekreasi" style="display :none;">
         <div class="form-group row">
@@ -39,15 +37,15 @@
         </div>
         <div class="form-group row">
           <label for="htm" class="col-sm-3 col-form-label">Harga Tiket Masuk:</label>
-          <input type="number" name="htm" id="htm" value="0" class="col-sm-5">
+          <input type="text" name="htm" id="htm" value="0" class="col-sm-5">
         </div>
         <div class="form-group row">
           <label for="pengunjung" class="col-sm-3 col-form-label">Jumlah Pengunjung:</label>
-          <input type="number" name="pengunjung" id="pengunjung" value="0" class="col-sm-5">
+          <input type="text" name="pengunjung" id="pengunjung" value="0" class="col-sm-5">
         </div>
         <div class="form-group row">
           <label for="persen" class="col-sm-3 col-form-label">Penggunaan Musik (%):</label>
-          <input type="number" name="persen" id="persen" value="0" class="col-sm-5" max="100" min="0">
+          <input type="text" name="persen" id="persen" value="0" class="col-sm-5" max="100" min="0">
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
@@ -72,15 +70,15 @@
         </div>
         <div class="form-group row">
           <label for="bproduksi" class="col-sm-3 col-form-label">Biaya Produksi:</label>
-          <input type="number" name="bproduksi" id="bproduksi" placeholder="Masukkan Biaya Produksi" class="col-sm-5" disabled>
+          <input type="text" name="bproduksi" id="bproduksi" placeholder="Masukkan Biaya Produksi" class="col-sm-5" disabled>
         </div>
         <div class="form-group row">
           <label for="grosstiket" class="col-sm-3 col-form-label">Penjualan Tiket (Gross):</label>
-          <input type="number" name="grosstiket" id="grosstiket" placeholder="Masukkan Penjualan Tiket" class="col-sm-5">
+          <input type="text" name="grosstiket" id="grosstiket" placeholder="Masukkan Penjualan Tiket" class="col-sm-5">
         </div>
         <div class="form-group row">
           <label for="freetiket" class="col-sm-3 col-form-label">Tiket Gratis:</label>
-          <input type="number" name="freetiket" id="freetiket" placeholder="Masukkan Tiket Gratis" class="col-sm-5">
+          <input type="text" name="freetiket" id="freetiket" placeholder="Masukkan Tiket Gratis" class="col-sm-5">
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
@@ -94,7 +92,7 @@
       <form id="formmall" style="display :none;">
         <div class="form-group row">
           <label for="luasruang" class="col-sm-3 col-form-label">Luas Ruang (dalam Meter Persegi):</label>
-          <input type="number" name="luasruang" id="luasruang" placeholder="Masukkan Luas Area" class="col-sm-5">
+          <input type="text" name="luasruang" id="luasruang" placeholder="Masukkan Luas Area" class="col-sm-5">
         </div>
         <div class="form-group row">
           <div class="col-sm-10">
@@ -107,125 +105,96 @@
       <!--Start Form Karaoke-->
       <form id="formkaraoke" style="display :none;">
         <div class="form-group row">
-          <label for="karaokeaula" class="col-sm-3 col-form-label">Karaoke Tanpa Kamar (Aula):</label>
-          <div class="form-check form-check-inline col-sm-8">
-            <input type="checkbox" id="cekaula" name="cekaula" class="form-check-input col-sm-1">
-            <input type="number" name="karaokeaula" id="karaokeaula" placeholder="Jumlah Kamar" class="col-sm-5" disabled>
-          </div>
+          <label for="karaokeaula" class="col-sm-4 col-form-label">Karaoke Tanpa Kamar (Aula):</label>
+          <input type="text" name="karaokeaula" id="karaokeaula" placeholder="Jumlah Kamar" class="col-sm-6">
         </div>
         <div class="form-group row">
-          <label for="luasruang" class="col-sm-3 col-form-label">Karaoke Keluarga:</label>
-          <div class="form-check form-check-inline col-sm-8">
-            <input type="checkbox" id="cekkluarga" name="cekkluarga" class="form-check-input col-sm-1">
-            <input type="number" name="karaokefamili" id="karaokefamili" placeholder="Jumlah Kamar" class="col-sm-5" disabled>
-          </div>    </div>
-          <div class="form-group row">
-            <label for="luasruang" class="col-sm-3 col-form-label">Karaoke Eksekutif:</label>
-            <div class="form-check form-check-inline col-sm-8">
-              <input type="checkbox" id="cekeksekutip" name="cekeksekutip" class="form-check-input col-sm-1">
-              <input type="number" name="karaokeeksekutif" id="karaokeeksekutif" placeholder="Jumlah Kamar" class="col-sm-5" disabled>
-            </div>
+          <label for="karaokefamili" class="col-sm-4 col-form-label">Karaoke Keluarga:</label>
+          <input type="text" name="karaokefamili" id="karaokefamili" placeholder="Jumlah Kamar" class="col-sm-6">
+        </div>
+        <div class="form-group row">
+          <label for="karaokeeksekutif" class="col-sm-4 col-form-label">Karaoke Eksekutif:</label>
+          <input type="text" name="karaokeeksekutif" id="karaokeeksekutif" placeholder="Jumlah Kamar" class="col-sm-6">
+        </div>
+        <div class="form-group row">
+          <label for="karaokebooth" class="col-sm-4 col-form-label">Karaoke Kubus (Booth):</label>
+          <input type="text" name="karaokebooth" id="karaokebooth" placeholder="Jumlah Kamar" class="col-sm-6">
+        </div>
+        <div class="form-group row">
+          <label for="harikerja" class="col-sm-4 col-form-label">Hari Kerja:</label>
+          <input type="text" name="harikerja" id="harikerja" placeholder="Hari Kerja" class="col-sm-6">
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" id="btnkaraoke">Hitung</button>
           </div>
-          <div class="form-group row">
-            <label for="luasruang" class="col-sm-3 col-form-label">Karaoke Kubus (Booth):</label>
-            <div class="form-check form-check-inline col-sm-8">
-              <input type="checkbox" id="cekbooth" name="cekbooth" class="form-check-input col-sm-1">
-              <input type="number" name="karaokebooth" id="karaokebooth" placeholder="Jumlah Kamar" class="col-sm-5" disabled>
-            </div>    </div>
-            <div class="form-group row">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary" id="btnkaraoke">Hitung</button>
-              </div>
-            </div>
-          </form>
-          <!-- End Form Karaoke -->
-
-          <!--Start Form Restaurant dan Kafe-->
-          <form id="formrestokafe" style="display :none;">
-            <div class="form-group row">
-              <label for="jmlkursi" class="col-sm-3 col-form-label">Jumlah Kursi:</label>
-              <input type="number" name="jmlkursi" id="jmlkursi" placeholder="Masukkan Jumlah Kursi" class="col-sm-5">
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary" id="btnresto">Hitung</button>
-              </div>
-            </div>
-          </form>
-          <!-- End Form Restaurant dan Kafe -->
-
-          <!--Start Form Pub, Bar, Bistro-->
-          <form id="formpubbar" style="display :none;">
-            <div class="form-group row">
-              <label for="pubresto" class="col-sm-3 col-form-label">Luas Ruang (dalam Meter Persegi):</label>
-              <input type="number" name="pubresto" id="pubresto" placeholder="Masukkan Luas Area" class="col-sm-5">
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary" id="btnpub">Hitung</button>
-              </div>
-            </div>
-          </form>
-          <!-- End Form Pub, Bar, Bistro -->
-
-          <!--Start Form Diskotik-->
-          <form id="formdiskotik" style="display :none;">
-            <div class="form-group row">
-              <label for="diskotikluas" class="col-sm-3 col-form-label">Luas Ruang (dalam Meter Persegi):</label>
-              <input type="number" name="diskotikluas" id="diskotikluas" placeholder="Masukkan Luas Area" class="col-sm-5">
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary" id="btndiskotik">Hitung</button>
-              </div>
-            </div>
-          </form>
-          <!-- End Form Diskotik -->
-
-          <!--Start Form Hotel-->
-          <form id="formhotel" style="display :none;">
-            <div class="form-group row">
-              <label for="hotelkamar" class="col-sm-3 col-form-label">Jumlah Kamar:</label>
-              <input type="number" name="hotelkamar" id="hotelkamar" placeholder="Masukkan Jumlah Kamar" class="col-sm-5">
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary" id="btnhotel">Hitung</button>
-              </div>
-            </div>
-          </form>
-          <!-- End Form Hotel -->
         </div>
-        <div class="col-md-4 form-group">
-          <label class="h5">Royalti yang harus dibayarkan:</label>
-          <p>Rp. <span id="duit">test</span> </p>
+      </form>
+      <!-- End Form Karaoke -->
+
+      <!--Start Form Restaurant dan Kafe-->
+      <form id="formrestokafe" style="display :none;">
+        <div class="form-group row">
+          <label for="jmlkursi" class="col-sm-3 col-form-label">Jumlah Kursi:</label>
+          <input type="text" name="jmlkursi" id="jmlkursi" placeholder="Masukkan Jumlah Kursi" class="col-sm-5">
         </div>
-      </div>
-      <!-- /END THE FEATURETTES -->
-      <script>
-      // In your Javascript (external .js resource or <script> tag)
-      $(document).ready(function() {
-        // $('#cat').select2({
-        //   placeholder: 'Pilih Jenis Usaha'
-        // });
-        $.selMap = {
-          'rekreasi' : $('#formrekreasi'),
-          'konser' : $('#formkonser'),
-          'karaoke' : $('#formkaraoke'),
-          'maldsb' : $('#formmall'),
-          'hotel' :  $('#formhotel'),
-          'restokafe' :  $('#formrestokafe'),
-          'pubbar' : $('#formpubbar'),
-          'diskotik' : $('#formdiskotik')
-        };
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" id="btnresto">Hitung</button>
+          </div>
+        </div>
+      </form>
+      <!-- End Form Restaurant dan Kafe -->
 
-        $('#cat').change(function(){
-          $.each($.selMap, function() { this.hide(); });
-          $.selMap[$(this).val()].show();
-        });
+      <!--Start Form Pub, Bar, Bistro-->
+      <form id="formpubbar" style="display :none;">
+        <div class="form-group row">
+          <label for="pubresto" class="col-sm-3 col-form-label">Luas Ruang (dalam Meter Persegi):</label>
+          <input type="text" name="pubresto" id="pubresto" placeholder="Masukkan Luas Area" class="col-sm-5">
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" id="btnpub">Hitung</button>
+          </div>
+        </div>
+      </form>
+      <!-- End Form Pub, Bar, Bistro -->
 
-      });
-      </script>
-      <script src="{{ url_for('static',filename='js/formsubmit.js') }}" charset="utf-8"></script>
+      <!--Start Form Diskotik-->
+      <form id="formdiskotik" style="display :none;">
+        <div class="form-group row">
+          <label for="diskotikluas" class="col-sm-3 col-form-label">Luas Ruang (dalam Meter Persegi):</label>
+          <input type="text" name="diskotikluas" id="diskotikluas" placeholder="Masukkan Luas Area" class="col-sm-5">
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" id="btndiskotik">Hitung</button>
+          </div>
+        </div>
+      </form>
+      <!-- End Form Diskotik -->
+
+      <!--Start Form Hotel-->
+      <form id="formhotel" style="display :none;">
+        <div class="form-group row">
+          <label for="hotelkamar" class="col-sm-3 col-form-label">Jumlah Kamar:</label>
+          <input type="text" name="hotelkamar" id="hotelkamar" placeholder="Masukkan Jumlah Kamar" class="col-sm-5">
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" id="btnhotel">Hitung</button>
+          </div>
+        </div>
+      </form>
+      <!-- End Form Hotel -->
     </div>
-    {% endblock %}
+    <div class="col-4 jumbotron">
+      <label class="h5">Royalti yang harus dibayarkan:</label>
+      <p class="h6">Rp. <span id="duit">0</span> </p>
+    </div>
+  </div>
+  <!-- /END THE FEATURETTES -->
+  <script src="{{ url_for('static',filename='js/_docready.js') }}" type="text/javascript"></script>
+  <script src="{{ url_for('static',filename='js/formsubmit.js') }}" type="text/javascript"></script>
+</div>
+{% endblock %}
