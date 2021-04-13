@@ -121,14 +121,15 @@ def bank(lbank):
     return royalti
 
 
-def bioskop():
-    layar = int(input("Jumlah layar : "))
+def bioskop(layar):
+    layar = int(layar)
     royalti = layar * 3600000
     return royalti
 
 
-def pameran():
-    royalti = 1500000
+def pameran(haripamer):
+    hari = int(haripamer)
+    royalti = hari * 1500000
     return royalti
 
 
@@ -136,20 +137,21 @@ def pesawatinflight(pnmpang, tkt, dur):
     penumpang = int(pnmpang)
     tiket = int(tkt)
     durasi = int(dur)
-    royalti = penumpang * 0.25 * 0.01 * tiket * 10 * 0.01 * durasi
+    royalti = penumpang * (0.25 * tiket) * durasi * 0.1
     return royalti
 
 
-def pesawatonground(hrgtiket, dur):
-    tiket = int(hrgtiket)
-    durasi = int(dur)
-    royalti = 0.25 * 0.01 * tiket * durasi
-    return royalti
-
-
-def kereta(pnmpang, tkt, dur):
+def pesawatonground(pnmpang, tkt, dur):
     penumpang = int(pnmpang)
     tiket = int(tkt)
     durasi = int(dur)
-    royalti = penumpang * 0.25 * 0.01 * tiket * 10 * 0.01 * durasi
+    royalti = (0.25 * tiket) * penumpang * durasi
+    return royalti
+
+
+def kereta(pnmpang, tkt, durx):
+    penumpang = int(pnmpang)
+    tiket = int(tkt)
+    durasi = int(durx)
+    royalti = penumpang * (0.25 * tiket) * durasi * 0.1
     return royalti

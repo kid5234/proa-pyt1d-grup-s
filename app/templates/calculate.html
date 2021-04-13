@@ -177,14 +177,124 @@
         </div>
       </form>
       <!-- End Form Hotel -->
+
+      <!--Start Form NSP-->
+      <form id="formnsp" style="display :none;">
+        <div class="form-group row">
+          {{ nspForm.nsp.label(class="col-sm-3 col-form-label") }}
+          {{ nspForm.nsp(class="col-sm-5") }}
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            {{ nspForm.btnnsp(class="btn btn-primary")}}
+          </div>
+        </div>
+      </form>
+      <!-- End Form NSP -->
+
+      <!--Start Form Bank-->
+      <form id="formbank" style="display :none;">
+        <div class="form-group row">
+          {{ bankForm.luasbankktr.label(class="col-sm-3 col-form-label") }}
+          {{ bankForm.luasbankktr(class="col-sm-5") }}
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            {{ bankForm.btnbank(class="btn btn-primary")}}
+          </div>
+        </div>
+      </form>
+      <!-- End Form Bank -->
+
+      <!--Start Form Bioskop-->
+      <form id="formbioskop" style="display :none;">
+        <div class="form-group row">
+          {{ bioskopForm.jmllayar.label(class="col-sm-3 col-form-label") }}
+          {{ bioskopForm.jmllayar(class="col-sm-5") }}
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            {{ bioskopForm.btnbioskop(class="btn btn-primary")}}
+          </div>
+        </div>
+      </form>
+      <!-- End Form Bioskop -->
+
+      <!--Start Form pesawat-->
+      <form id="formpesawat" style="display :none;">
+        <div class="form-group row">
+          {{ pesawatForm.jmlpenumpangpswt.label(class="col-sm-3 col-form-label") }}
+          {{ pesawatForm.jmlpenumpangpswt(class="col-sm-5") }}
+        </div>
+        <div class="form-group row">
+          {{ pesawatForm.hrgtiketpswt.label(class="col-sm-3 col-form-label") }}
+          {{ pesawatForm.hrgtiketpswt(class="col-sm-5") }}
+        </div>
+        <div class="form-group row">
+          {{ pesawatForm.durasimskpswt.label(class="col-sm-3 col-form-label") }}
+          {{ pesawatForm.durasimskpswt(class="col-sm-5") }}
+        </div>
+        <div class="form-group row">
+          {{ pesawatForm.durasimskpswtog.label(class="col-sm-3 col-form-label") }}
+          {{ pesawatForm.durasimskpswtog(class="col-sm-5") }}
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            {{ pesawatForm.btnpesawat(class="btn btn-primary")}}
+          </div>
+        </div>
+      </form>
+      <!-- End Form pesawat -->
+
+      <!--Start Form Bazaar-->
+      <form id="formbazaar" style="display :none;">
+        <div class="form-group row">
+          {{ bazaarForm.hariAcara.label(class="col-sm-3 col-form-label") }}
+          {{ bazaarForm.hariAcara(class="col-sm-5") }}
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            {{ bazaarForm.btnbazaar(class="btn btn-primary")}}
+          </div>
+        </div>
+      </form>
+      <!-- End Form Bazaar -->
+
+      <!--Start Form Transport selain pesawat-->
+      <form id="formtransport" style="display :none;">
+        <div class="form-group row">
+          {{ transportForm.jmlpenumpang.label(class="col-sm-3 col-form-label") }}
+          {{ transportForm.jmlpenumpang(class="col-sm-5") }}
+        </div>
+        <div class="form-group row">
+          {{ transportForm.hrgtikettransport.label(class="col-sm-3 col-form-label") }}
+          {{ transportForm.hrgtikettransport(class="col-sm-5") }}
+        </div>
+        <div class="form-group row">
+          {{ transportForm.durasimsk.label(class="col-sm-3 col-form-label") }}
+          {{ transportForm.durasimsk(class="col-sm-5") }}
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            {{ transportForm.btntransport(class="btn btn-primary")}}
+          </div>
+        </div>
+      </form>
+      <!-- End Form Transport selain pesawat -->
+
     </div>
     <div class="col-4 jumbotron">
       <label class="h5">Royalti yang harus dibayarkan:</label>
-      <p class="h6">Rp. <span id="duit">0</span> </p>
+      <p class="h4">Rp. <span id="duit">0</span> </p>
     </div>
   </div>
   <!-- /END THE FEATURETTES -->
-  <script src="{{ url_for('static',filename='js/_docready.js') }}" type="text/javascript"></script>
-  <script src="{{ url_for('static',filename='js/formsubmit.js') }}" type="text/javascript"></script>
+
 </div>
+{% endblock %}
+
+{% block scripts %}
+{{ super()}}
+<script src="{{ url_for('static',filename='js/_docready.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static',filename='js/formsubmit.js') }}" type="text/javascript"></script>
 {% endblock %}

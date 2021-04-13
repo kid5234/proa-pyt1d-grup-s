@@ -23,10 +23,19 @@ def about():
 @app.route('/hitung')
 def hitung():
     catForm = f.JenisForm()
+    nspForm = f.nspForm()
+    bankForm = f.bankForm()
+    bioskopForm = f.bioskopForm()
+    bazaarForm = f.bazaarForm()
+    transportForm = f.transportForm()
+    pesawatForm = f.pesawatForm()
     return render_template(
         "calculate.html",
         title='- Kalkulasi',
-        catForm=catForm
+        catForm=catForm, bazaarForm=bazaarForm,
+        nspForm=nspForm, transportForm=transportForm,
+        bankForm=bankForm, pesawatForm=pesawatForm,
+        bioskopForm=bioskopForm
     )
 
 
@@ -68,6 +77,31 @@ def proseshitung():
         elif cat == 'diskotik':
             lruang = request.args.get("ldisk")
             bayar = r.disko(lruang)
+        elif cat == 'nsp':
+            nsp = request.args.get("sambung")
+            bayar = r.nada(nsp)
+        elif cat == 'bank':
+            lbank = request.args.get("luasbank")
+            bayar = r.bank(lbank)
+        elif cat == 'bioskop':
+            layar = request.args.get("jlayar")
+            bayar = r.bioskop(layar)
+        elif cat == 'pesawat':
+            pnmpang = request.args.get("jpnumpangpswt")
+            tkt = request.args.get("hrgtiketpswt")
+            dur = request.args.get("durasipswt")
+            durx = request.args.get("durasipswtog")
+            bflight = r.pesawatinflight(pnmpang, tkt, dur)
+            bground = r.pesawatonground(pnmpang, tkt, durx)
+            bayar = bflight + bground
+        elif cat == 'bazaar':
+            haripamer = request.args.get("haribazaar")
+            bayar = r.nada(haripamer)
+        elif cat == 'kereta':
+            pnmpang = request.args.get("jpnumpang")
+            tkt = request.args.get("hrgtiket")
+            dur = request.args.get("durasi")
+            bayar = r.kereta(pnmpang, tkt, dur)
         else:
             pass
         print(bayar)  # cek isinya

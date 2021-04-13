@@ -87,4 +87,69 @@ $(function(){
     });
     return false;
   });
+
+  $('#btnnsp').click(function() {
+    $.getJSON('/proseshitung', {
+      cat: $("#cat").val(),
+      sambung : $("#nsp").val()
+    }, function(data) {
+      $('#duit').text(data.result)
+    });
+    return false;
+  });
+
+  $('#btnbank').click(function() {
+    $.getJSON('/proseshitung', {
+      cat: $("#cat").val(),
+      luasbank : $("#luasbankktr").val()
+    }, function(data) {
+      $('#duit').text(data.result)
+    });
+    return false;
+  });
+
+  $('#btnbioskop').click(function() {
+    $.getJSON('/proseshitung', {
+      cat: $("#cat").val(),
+      jlayar : $("#jmllayar").val()
+    }, function(data) {
+      $('#duit').text(data.result)
+    });
+    return false;
+  });
+
+  $('#btnbazaar').click(function() {
+    $.getJSON('/proseshitung', {
+      cat: $("#cat").val(),
+      haribazaar : $("#hariAcara").val()
+    }, function(data) {
+      $('#duit').text(data.result)
+    });
+    return false;
+  });
+
+  $('#btntransport').click(function() {
+    $.getJSON('/proseshitung', {
+      cat: $("#cat").val(),
+      jpnumpang : $("#jmlpenumpang").val(),
+      hrgtiket : $("#hrgtikettransport").val(),
+      durasi : $("#durasimsk").val()
+    }, function(data) {
+      $('#duit').text(data.result)
+    });
+    return false;
+  });
+
+  $('#btnpesawat').click(function() {
+    $.getJSON('/proseshitung', {
+      cat: $("#cat").val(),
+      jpnumpangpswt : $("#jmlpenumpangpswt").val(),
+      hrgtiketpswt : $("#hrgtiketpswt").val(),
+      durasipswt : $("#durasimskpswt").val(),
+      durasipswtog : $("#durasimskpswtog").val()
+    }, function(data) {
+      $('#duit').text(data.result)
+    });
+    return false;
+  });
 });
