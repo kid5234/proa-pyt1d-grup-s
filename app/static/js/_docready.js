@@ -21,7 +21,7 @@ $(document).ready(function() {
   $('#cat').change(function(){
     $('#cat').find('[value="0"]').attr('hidden','hidden');
     $.each($.selMap, function() { this.hide(); this.trigger('reset') });
-    $.selMap[$(this).val()].show();
+    $.selMap[$(this).val()].fadeIn();
     $('#duit').text('0');
     $('#boxDuit').removeClass('alert-success');
   });
