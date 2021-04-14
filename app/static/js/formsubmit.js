@@ -1,4 +1,8 @@
 //function process
+function setDuit(data) {
+  $('#duit').text(data.result)
+  $('#boxDuit').addClass('alert-success')
+}
 $(function(){
   $('#btnrekreasi').click(function() {
     $.getJSON('/proseshitung', {
@@ -7,7 +11,7 @@ $(function(){
       pengunjung : $("#pengunjung").val(),
       persentase : $("#persen").val()
     }, function(data) {
-      $('#duit').text(data.result)
+      setDuit(data);
     });
     return false;
   });
@@ -17,7 +21,7 @@ $(function(){
       cat: $("#cat").val(),
       kmrhotel : $("#hotelkamar").val()
     }, function(data) {
-      $('#duit').text(data.result)
+      setDuit(data);
     });
     return false;
   });
@@ -27,7 +31,7 @@ $(function(){
       cat: $("#cat").val(),
       jmlkur : $("#jmlkursi").val()
     }, function(data) {
-      $('#duit').text(data.result)
+      setDuit(data);
     });
     return false;
   });
@@ -37,7 +41,7 @@ $(function(){
       cat: $("#cat").val(),
       lmall : $("#luasruang").val()
     }, function(data) {
-      $('#duit').text(data.result)
+      setDuit(data);
     });
     return false;
   });
@@ -47,7 +51,7 @@ $(function(){
       cat: $("#cat").val(),
       lpub : $("#pubbarluas").val()
     }, function(data) {
-      $('#duit').text(data.result)
+      setDuit(data);
     });
     return false;
   });
@@ -57,7 +61,7 @@ $(function(){
       cat: $("#cat").val(),
       ldisk : $("#diskotikluas").val()
     }, function(data) {
-      $('#duit').text(data.result)
+      setDuit(data);
     });
     return false;
   });
@@ -71,7 +75,7 @@ $(function(){
       rkubus : $("#karaokebooth").val(),
       hkerja : $("#harikerja").val()
     }, function(data) {
-      $('#duit').text(data.result)
+      setDuit(data);
     });
     return false;
   });
@@ -83,7 +87,7 @@ $(function(){
       tiketgratis : $("#freetiket").val(),
       biayaprod : $("#bproduksi").val()
     }, function(data) {
-      $('#duit').text(data.result)
+      setDuit(data);
     });
     return false;
   });
@@ -93,7 +97,7 @@ $(function(){
       cat: $("#cat").val(),
       sambung : $("#nsp").val()
     }, function(data) {
-      $('#duit').text(data.result)
+      setDuit(data);
     });
     return false;
   });
@@ -103,7 +107,7 @@ $(function(){
       cat: $("#cat").val(),
       luasbank : $("#luasbankktr").val()
     }, function(data) {
-      $('#duit').text(data.result)
+      setDuit(data);
     });
     return false;
   });
@@ -113,7 +117,7 @@ $(function(){
       cat: $("#cat").val(),
       jlayar : $("#jmllayar").val()
     }, function(data) {
-      $('#duit').text(data.result)
+      setDuit(data);
     });
     return false;
   });
@@ -123,7 +127,7 @@ $(function(){
       cat: $("#cat").val(),
       haribazaar : $("#hariAcara").val()
     }, function(data) {
-      $('#duit').text(data.result)
+      setDuit(data);
     });
     return false;
   });
@@ -135,7 +139,7 @@ $(function(){
       hrgtiket : $("#hrgtikettransport").val(),
       durasi : $("#durasimsk").val()
     }, function(data) {
-      $('#duit').text(data.result)
+      setDuit(data);
     });
     return false;
   });
@@ -148,8 +152,20 @@ $(function(){
       durasipswt : $("#durasimskpswt").val(),
       durasipswtog : $("#durasimskpswtog").val()
     }, function(data) {
-      $('#duit').text(data.result)
+      setDuit(data);
     });
     return false;
   });
+
+  $('#btnradio').click(function() {
+    $.getJSON('/proseshitung', {
+      cat: $("#cat").val(),
+      thnRadio : $("#tahunRadio").val(),
+      iklanRadio : $("#auditRadio").val()
+    }, function(data) {
+      setDuit(data);
+    });
+    return false;
+  });
+
 });

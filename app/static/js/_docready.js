@@ -14,7 +14,8 @@ $(document).ready(function() {
     'bioskop' : $('#formbioskop'),
     'pesawat' : $('#formpesawat'),
     'bazaar' : $('#formbazaar'),
-    'kereta' : $('#formtransport')
+    'kereta' : $('#formtransport'),
+    'radio' : $('#formradio')
   };
 
   $('#cat').change(function(){
@@ -22,6 +23,11 @@ $(document).ready(function() {
     $.each($.selMap, function() { this.hide(); this.trigger('reset') });
     $.selMap[$(this).val()].show();
     $('#duit').text('0');
+    $('#boxDuit').removeClass('alert-success');
+  });
+
+  $('#tahunRadio').change(function(){
+    $(this).find('[value="0"]').attr('hidden','hidden');
   });
 
   $('#cekradio-0').click(function(){
@@ -54,4 +60,15 @@ $(document).ready(function() {
     $('#grosstiket').val('0');
   });
 
+  $('#komersilRad-0').click(function(){
+    $('#tahunRadio').removeAttr("disabled");
+    $('#auditRadio').removeAttr("disabled");
+  });
+
+  $('#komersilRad-1').click(function(){
+    $('#tahunRadio').attr("disabled","disabled");
+    $('#auditRadio').attr("disabled","disabled");
+    $('#tahunRadio').val('0');
+    $('#auditRadio').val('0');
+  });
 });

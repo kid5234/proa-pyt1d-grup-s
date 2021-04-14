@@ -32,7 +32,8 @@ class JenisForm(FlaskForm):
             ('bioskop', 'Gedung Bioskop'),
             ('bazaar', 'Pameran dan Bazaar'),
             ('pesawat', 'Pesawat Terbang'),
-            ('kereta', 'Transportasi Lain(Kereta, Bus, Kapal Laut)')
+            ('kereta', 'Transportasi Lain(Kereta, Bus, Kapal Laut)'),
+            ('radio', 'Radio')
         ]
     )
 
@@ -44,7 +45,8 @@ class rekreasiForm(FlaskForm):
         choices=[
             ('Ya', 'Ya'),
             ('Tidak', 'Tidak')
-        ]
+        ],
+        default='Ya'
     )
     htm = StringField(
         'Masukkan HTM',
@@ -140,7 +142,8 @@ class konserForm(FlaskForm):
         choices=[
             ('Ya', 'Ya'),
             ('Tidak', 'Tidak')
-        ]
+        ],
+        default='Ya'
     )
     bproduksi = StringField(
         'Biaya Produksi',
@@ -281,3 +284,33 @@ class pesawatForm(FlaskForm):
         ]
     )
     btnpesawat = SubmitField('Hitung')
+
+
+class radioForm(FlaskForm):
+    # untuk Konser
+    komersilRad = RadioField(
+        'Komersil?',
+        choices=[
+            ('Ya', 'Ya'),
+            ('Tidak', 'Tidak')
+        ],
+        default='Ya'
+    )
+    tahunRadio = SelectField(
+        'Tahun Pembayaran',
+        choices=[
+            ('0', 'Pilih Tahun'),
+            ('2015', '2015'),
+            ('2016', '2016'),
+            ('2017', '2017'),
+            ('2018', '2018'),
+            ('2019', '2019')
+        ]
+    )
+    auditRadio = StringField(
+        'Pendapatan Iklan (Hasil Audit Akuntan Publik)',
+        validators=[
+            NumberRange(min=0)
+        ]
+    )
+    btnradio = SubmitField('Hitung')

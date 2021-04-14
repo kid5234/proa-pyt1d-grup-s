@@ -155,3 +155,34 @@ def kereta(pnmpang, tkt, durx):
     durasi = int(durx)
     royalti = penumpang * (0.25 * tiket) * durasi * 0.1
     return royalti
+
+
+def radio(thnRad, iklanRad):
+    tahun = int(thnRad)
+    pendapatan = int(iklanRad)
+    if pendapatan == 0:
+        hak_pencipta = 1000000
+        hak_terkait = 1000000
+        total_royalti = hak_terkait+hak_pencipta
+    else:
+        if tahun == 2015:
+            hak_pencipta = (0.2/100)*pendapatan
+            hak_terkait = (0.15/100)*pendapatan
+            total_royalti = hak_terkait+hak_pencipta
+        elif tahun == 2016:
+            hak_pencipta = (0.3/100)*pendapatan
+            hak_terkait = (0.25/100)*pendapatan
+            total_royalti = hak_terkait+hak_pencipta
+        elif tahun == 2017:
+            hak_pencipta = (0.4/100)*pendapatan
+            hak_terkait = (0.35/100)*pendapatan
+            total_royalti = hak_terkait+hak_pencipta
+        elif tahun == 2018:
+            hak_pencipta = (0.5/100)*pendapatan
+            hak_terkait = (0.45/100)*pendapatan
+            total_royalti = hak_terkait+hak_pencipta
+        else:
+            hak_pencipta = (0.6/100)*pendapatan
+            hak_terkait = (0.55/100)*pendapatan
+            total_royalti = hak_terkait+hak_pencipta
+    return total_royalti

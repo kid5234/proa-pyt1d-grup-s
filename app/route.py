@@ -37,6 +37,7 @@ def hitung():
     mallForm = f.mallForm()
     konserForm = f.konserForm()
     rekreasiForm = f.rekreasiForm()
+    radioForm = f.radioForm()
     return render_template(
         "calculate.html",
         title='- Kalkulasi',
@@ -44,7 +45,8 @@ def hitung():
         nspForm=nspForm, transportForm=transportForm, diskoForm=diskoForm,
         bankForm=bankForm, pesawatForm=pesawatForm, pubForm=pubForm,
         bioskopForm=bioskopForm, restoForm=restoForm, karaokeForm=karaokeForm,
-        mallForm=mallForm, konserForm=konserForm, rekreasiForm=rekreasiForm
+        mallForm=mallForm, konserForm=konserForm, rekreasiForm=rekreasiForm,
+        radioForm=radioForm
     )
 
 
@@ -111,6 +113,10 @@ def proseshitung():
             tkt = request.args.get("hrgtiket")
             dur = request.args.get("durasi")
             bayar = r.kereta(pnmpang, tkt, dur)
+        elif cat == 'radio':
+            thnRad = request.args.get("thnRadio")
+            iklanRad = request.args.get("iklanRadio")
+            bayar = r.radio(thnRad, iklanRad)
         else:
             pass
         print(bayar)  # cek isinya

@@ -5,7 +5,7 @@
   <form id="choice">
     <div class="form-group row">
       {{ catForm.cat.label(class = 'h6 col-sm-2 col-form-label') }}
-      {{ catForm.cat(class = 'col-sm-5') }}
+      {{ catForm.cat(class = 'col-sm-6') }}
     </div>
   </form>
   <hr class="featurette-divider">
@@ -278,8 +278,35 @@
       </form>
       <!-- End Form Transport selain pesawat -->
 
+      <!--Start Form Radio-->
+      <form id="formradio" style="display :none;">
+        <div class="form-group row">
+          {{ radioForm.komersilRad.label(class="h6 col-sm-2 col-form-label") }}
+          {% for subfield in radioForm.komersilRad %}
+            <div class="form-check form-check-inline">
+              {{ subfield(class="form-check-input") }}
+              {{ subfield.label(class="form-check-label") }}
+            </div>
+          {% endfor %}
+        </div>
+        <div class="form-group row">
+          {{ radioForm.tahunRadio.label(class = 'h6 col-sm-4 col-form-label') }}
+          {{ radioForm.tahunRadio(class = 'col-sm-3') }}
+        </div>
+        <div class="form-group row">
+          {{ radioForm.auditRadio.label(class="col-sm-4 col-form-label") }}
+          {{ radioForm.auditRadio(class="col-sm-6",  placeholder="Masukkan Pendapatan Setelah Audit") }}
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            {{ radioForm.btnradio(class="btn btn-primary")}}
+          </div>
+        </div>
+      </form>
+      <!-- End Form Radio -->
+
     </div>
-    <div class="col-4 jumbotron">
+    <div class="col-4 jumbotron" id='boxDuit'>
       <label class="h5">Royalti yang dibayarkan:</label>
       <p class="h4">Rp. <span id="duit">0</span> </p>
     </div>
