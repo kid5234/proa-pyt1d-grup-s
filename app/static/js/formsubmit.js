@@ -1,6 +1,7 @@
 //function process
 function setDuit(data) {
   $('#duit').text(data.result)
+  $('#boxDuit').fadeIn();
   $('#boxDuit').addClass('alert-success')
 }
 $(function(){

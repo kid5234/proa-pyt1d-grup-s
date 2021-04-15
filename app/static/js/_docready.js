@@ -19,11 +19,11 @@ $(document).ready(function() {
   };
 
   $('#cat').change(function(){
+    $('#boxDuit').hide();
     $('#cat').find('[value="0"]').attr('hidden','hidden');
     $.each($.selMap, function() { this.hide(); this.trigger('reset') });
     $.selMap[$(this).val()].fadeIn();
     $('#duit').text('0');
-    $('#boxDuit').removeClass('alert-success');
   });
 
   $('#tahunRadio').change(function(){
