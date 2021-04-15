@@ -36,6 +36,19 @@ class JenisForm(FlaskForm):
             ('radio', 'Radio')
         ]
     )
+    cat2 = SelectField(
+        'Jenis Usaha',
+        choices=[
+            ('0', 'Pilih Jenis Usaha'),
+            ('rekreasi', 'Pusat Rekreasi'),
+            ('konser', 'Konser Musik'),
+            ('karaoke', 'Karaoke (Rumah Bernyanyi)'),
+            ('restokafe', 'Restaurant dan Kafe'),
+            ('pubbar', 'Pub, Bar, dan Bistro'),
+            ('hotel', 'Hotel dan Fasilitas Hotel'),
+            ('bazaar', 'Pameran dan Bazaar')
+        ]
+    )
 
 
 class rekreasiForm(FlaskForm):
@@ -81,7 +94,7 @@ class nspForm(FlaskForm):
 
 
 class hotelForm(FlaskForm):
-    # untuk nada sambung Telepon
+    # untuk hotel
     hotelkamar = StringField(
         'Jumlah Kamar',
         validators=[
@@ -167,7 +180,7 @@ class konserForm(FlaskForm):
 
 
 class karaokeForm(FlaskForm):
-    # untuk nada sambung Telepon
+    # untuk karaoke
     karaokeaula = StringField(
         'Karaoke Tanpa Kamar (Aula)',
         validators=[
@@ -213,7 +226,7 @@ class bankForm(FlaskForm):
 
 
 class bioskopForm(FlaskForm):
-    # untuk bank dan Kantor
+    # untuk bioskop
     jmllayar = StringField(
         'Jumlah Layar',
         validators=[
@@ -287,7 +300,7 @@ class pesawatForm(FlaskForm):
 
 
 class radioForm(FlaskForm):
-    # untuk Konser
+    # untuk radio
     komersilRad = RadioField(
         'Komersil?',
         choices=[
