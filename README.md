@@ -3,6 +3,10 @@
 # Music Royalti Calculator
 an Awe some app for Awe some rules
 
+### Future Update
+* form validation
+* random calculation
+
 ### installation (for Windows)
 
 * Navigate to your project folder, then create a virtual environment
